@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Active Defense Command Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .alert-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 p-8">
+    <header class="mb-8 border-b border-red-500 pb-4">
+        <h1 class="text-3xl font-bold text-red-500">DEFENSE COMMAND: ACTIVE TRACKING</h1>
+        <p class="text-slate-400 italic">Vigilance is our only survival. Tracking "Mini Shai-Hulud" in real-time.</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- System Status -->
+        <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <h2 class="text-xl font-semibold mb-4">Kernel Monitor Status</h2>
+            <div class="flex items-center space-x-2">
+                <div class="h-3 w-3 bg-green-500 rounded-full alert-pulse"></div>
+                <span>eBPF Listener Active</span>
+            </div>
+            <p class="mt-4 text-sm text-slate-400">Monitoring for `rm -rf` and unauthorized exfiltration.</p>
+        </div>
+
+        <!-- Threat Attribution -->
+        <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 md:col-span-2">
+            <h2 class="text-xl font-semibold mb-4 text-orange-400">Live Incident Log</h2>
+            <div id="log-container" class="font-mono text-sm space-y-2 h-40 overflow-y-auto">
+                <p class="text-blue-400">[SYSTEM] Initialization complete. Honeytokens deployed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Center -->
+    <div class="mt-8 bg-red-900/20 p-6 rounded-lg border border-red-900">
+        <h2 class="text-xl font-bold text-red-400 mb-4">Retaliatory & Reporting Actions</h2>
+        <div class="flex space-x-4">
+            <button onclick="simulateReport()" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded font-bold transition">
+                FORCE AUTOMATED REPORT TO CISA
+            </button>
+            <button class="bg-slate-700 cursor-not-allowed px-6 py-2 rounded font-bold" title="Operational in Beta 2.0">
+                DISMANTLE ATTACKER INFRASTRUCTURE
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function simulateReport() {
+            const log = document.getElementById('log-container');
+            const entry = document.createElement('p');
+            entry.className = "text-red-500 font-bold";
+            entry.innerHTML = `[ALERT] ${new Date().toLocaleTimeString()} - Transmitting Forensic Payload to authorities...`;
+            log.prepend(entry);
+            alert("Incident Telemetry packaged and sent to IC3/CISA endpoints.");
+        }
+    </script>
+</body>
+</html>
