@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# Ignore actual credentials if accidentally placed in repo
+*.pem
+id_rsa*
+credentials.txt
